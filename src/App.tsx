@@ -9,7 +9,7 @@ function App() {
           <div className='App'>
         <Route
           path='/login'
-          render={() => <Login />}
+          render={() => <Login/>}
         />
         <Route
           path='/main'

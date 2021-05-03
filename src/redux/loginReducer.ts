@@ -1,6 +1,6 @@
 import { Dispatch } from 'react';
 import { axiosInstance } from '../axios-instance';
-import { ActionType } from './reduxStore';
+import { ActionType, DispatchType } from './reduxStore';
 
 export type InitialStateLoginType = {
     status: "INIT" | "ERROR" | "INPROGRESS" | "CAPTCHAREQUIRED"
@@ -36,7 +36,7 @@ export const SetStatusAC = () => {
 
 }
 
-export const loginThunk = (email: string, pass: string, rm: boolean) => (dispatch: any) => {
+export const loginThunk = (email: string, pass: string, rm: boolean) => (dispatch: DispatchType) => {
     axiosInstance.post('auth/login', {
         email: email,
         password: pass,
