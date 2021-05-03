@@ -35,8 +35,8 @@ export function Login(props: LoginType) {
   //if (!props.isAuth) return <Redirect to={'main'} />
   return (
     <div className='loginContainer'>
-      <div><h3>Login</h3><input type='text' defaultValue="test@test.com" ref={loginRef} /></div>
-      <div><h3>Password</h3><input type='password' defaultValue="12345" ref={passwordRef} /></div>
+      <div><h3>Login</h3><input type='text' defaultValue="free@samuraijs.com" ref={loginRef} /></div>
+      <div><h3>Password</h3><input type='password' defaultValue="free" ref={passwordRef} /></div>
       <div><p>Remember me</p><input type='checkbox' ref={rememberMeRef} /></div>
       <div><button onClick={login}>LogIn</button></div>
     </div>

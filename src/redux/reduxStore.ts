@@ -1,9 +1,9 @@
 import { applyMiddleware, combineReducers, createStore, Store } from 'redux';
 import thunk from 'redux-thunk';
 import { authReducer, InitialStateAuthType, setAuthUserDataType } from './authReducer';
-import { InitialStateLoginType, LoginAuthType, loginReducer } from './loginReducer';
+import { InitialStateLoginType, loginReducer, SetStatusType, SetMessageType } from './loginReducer';
 
-export type ActionType = LoginAuthType | setAuthUserDataType
+export type ActionType = | setAuthUserDataType | SetStatusType | SetMessageType
 export type DispatchType = (action: ActionType) => void
 
 export type StateType = {

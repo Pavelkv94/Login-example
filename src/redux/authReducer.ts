@@ -25,15 +25,15 @@ export const authReducer = (state: InitialStateAuthType = initialState, action: 
     }
 }
 
-// export const setAuthUserData = (id: null | number, login: null | string, email: null | string): setAuthUserDataType => ({
-//     type: "SET-USER-DATA",
-//     data: { id, login, email }
-// })
-// export const getAuthUserDataThunkCreator = () => (dispatch: DispatchType) => {
-//     authAPI.me().then(response => {
-//         if (response.data.resultCode === 0) {
-//             let { id, login, email } = response.data.data;
-//             dispatch(setAuthUserData(id, login, email));
-//         }
-//     });
-// }
+export const setAuthUserData = (id: null | number, login: null | string, email: null | string): setAuthUserDataType => ({
+    type: "SET-USER-DATA",
+    data: { id, login, email }
+})
+export const getAuthUserDataThunkCreator = () => (dispatch: DispatchType) => {
+    authAPI.me().then(response => {
+        if (response.data.resultCode === 0) {
+            let { id, login, email } = response.data.data;
+            dispatch(setAuthUserData(id, login, email));
+        }
+    });
+}
