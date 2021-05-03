@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import '../App.css';
+import { loginThunk } from '../redux/loginReducer';
+import { StateType } from '../redux/reduxStore';
 
 export function Login(props: any) {
 
@@ -28,15 +30,15 @@ export function Login(props: any) {
     </div>
   );
 }
-let mapStateToProps = (state: any) => {
+let mapStateToProps = (state: StateType) => ({
   isAuth: state.auth.isAuth,
-    status: state.auth.isStatus,
-      message: state.auth.message,
-        capthaUrl: state.auth.captchaUrl,
-}
-let mapDispatchToProps = (dispatch: any) => {
-  login: (l, p, rm) => {
-    dispatch(loginThunk(l, p, rm))
+    status: state.login.status,
+      message: state.login.message,
+        capthaUrl: state.login.captchaUrl,
+})
+let mapDispatchToProps = (dispatch: any) => ({
+  login: (email:string, pass:string, remember:boolean) => {
+    dispatch(loginThunk(email, pass, remember))
   },
-}
+})
 export default connect(mapStateToProps, mapDispatchToProps)(Login)
