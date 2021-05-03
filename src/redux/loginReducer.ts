@@ -1,5 +1,4 @@
-import { Dispatch } from 'react';
-import { axiosInstance } from '../axios-instance';
+import { axiosInstance } from '../dal/axios-instance';
 import { ActionType, DispatchType } from './reduxStore';
 
 export type InitialStateLoginType = {

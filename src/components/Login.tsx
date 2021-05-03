@@ -1,26 +1,29 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router';
 import '../App.css';
 import { loginThunk } from '../redux/loginReducer';
 import { StateType } from '../redux/reduxStore';
 
-type LoginType = {
+type MapStateType = {
   isAuth: boolean
   status: string
   message: string
   capthaUrl: string
-  getLogin: ()=>void
 }
+type MapDispatchType = {
+  login: (email: string, pass: string, remember: boolean) => void
+}
+type LoginType = MapStateType & MapDispatchType
 
-
-export function Login(props: any) {
+export function Login(props: LoginType) {
 
   let loginRef = React.createRef<HTMLInputElement>();
   let passwordRef = React.createRef<HTMLInputElement>();
   let rememberMeRef = React.createRef<HTMLInputElement>();
 
   const login = () => {
-    props.getLogin && props.getLogin(
+    props.login && props.login(
       //@ts-ignore
       loginRef.current?.value,
       //@ts-ignore
@@ -29,7 +32,7 @@ export function Login(props: any) {
       rememberMeRef.current.checked)
 
   }
-
+  if (props.isAuth) return <Redirect to={'main'} />
   return (
     <div className='loginContainer'>
       <div><h3>Login</h3><input type='text' defaultValue="test@test.com" ref={loginRef} /></div>
@@ -40,15 +43,15 @@ export function Login(props: any) {
   );
 }
 
-let mapStateToProps = (state: StateType) => ({
+let mapStateToProps = (state: StateType): MapStateType => ({
   isAuth: state.auth.isAuth,
   status: state.login.status,
   message: state.login.message,
   capthaUrl: state.login.captchaUrl,
 })
-let mapDispatchToProps = (dispatch: any) => ({
+let mapDispatchToProps = (dispatch: any): MapDispatchType => ({
   login: (email: string, pass: string, remember: boolean) => {
     dispatch(loginThunk(email, pass, remember))
   },
 })
-export default connect(mapStateToProps, mapDispatchToProps)(Login)
+export const LoginContainer = connect(mapStateToProps, mapDispatchToProps)(Login)

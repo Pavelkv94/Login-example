@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route } from 'react-router';
 import './App.css';
-import { Login } from './components/Login';
+import { Login, LoginContainer } from './components/Login';
 import { Main } from './components/Main';
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
           <div className='App'>
         <Route
           path='/login'
-          render={() => <Login/>}
+          render={() => <LoginContainer />}
         />
         <Route
           path='/main'

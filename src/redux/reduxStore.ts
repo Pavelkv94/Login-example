@@ -1,10 +1,9 @@
-import React from 'react';
 import { applyMiddleware, combineReducers, createStore, Store } from 'redux';
 import thunk from 'redux-thunk';
-import { authReducer, InitialStateAuthType } from './authReducer';
+import { authReducer, InitialStateAuthType, setAuthUserDataType } from './authReducer';
 import { InitialStateLoginType, LoginAuthType, loginReducer } from './loginReducer';
 
-export type ActionType = LoginAuthType
+export type ActionType = LoginAuthType | setAuthUserDataType
 export type DispatchType = (action: ActionType) => void
 
 export type StateType = {
