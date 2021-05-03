@@ -1,3 +1,4 @@
 import React from 'react';
+import { LoginAuthType } from './loginReducer';
 
-export type ActionType = {}
+export type ActionType = LoginAuthType
