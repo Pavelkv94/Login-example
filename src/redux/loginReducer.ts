@@ -40,5 +40,8 @@ export const loginThunk = (email: string, pass: string, rm: boolean) => (dispatc
         email: email,
         password: pass,
         rememberMe: rm,
-    }).then((res) => { debugger })
+    }).then((res) => { 
+        //debugger 
+    if (res.data.resultCode === 0) {alert('Вы залогинились!')} else {alert(res.data.messages[0])}
+    })
 }

@@ -32,7 +32,7 @@ export function Login(props: LoginType) {
       rememberMeRef.current.checked)
 
   }
-  if (props.isAuth) return <Redirect to={'main'} />
+  //if (!props.isAuth) return <Redirect to={'main'} />
   return (
     <div className='loginContainer'>
       <div><h3>Login</h3><input type='text' defaultValue="test@test.com" ref={loginRef} /></div>
