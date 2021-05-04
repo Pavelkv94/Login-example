@@ -2,7 +2,7 @@ import React from 'react';
 import { Route } from 'react-router';
 import './App.css';
 import { Login, LoginContainer } from './components/Login';
-import { Main } from './components/Main';
+import { Main, MainContainer } from './components/Main';
 
 function App() {
   return (
@@ -13,7 +13,7 @@ function App() {
         />
         <Route
           path='/main'
-          render={() => <Main />}
+          render={() => <MainContainer />}
         />
       </div>
       );

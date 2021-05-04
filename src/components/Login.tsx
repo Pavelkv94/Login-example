@@ -1,3 +1,4 @@
+import Button from '@material-ui/core/Button';
 import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router';
@@ -32,14 +33,41 @@ export function Login(props: LoginType) {
       rememberMeRef.current.checked)
 
   }
-  //if (!props.isAuth) return <Redirect to={'main'} />
+  let errorMessage = props.status === "ERROR" && <div className="error">{props.message}</div>
+  if (props.isAuth) return <Redirect to="/main" />
   return (
     <div className='loginContainer'>
-      <div><h3>Login</h3><input type='text' defaultValue="free@samuraijs.com" ref={loginRef} /></div>
-      <div><h3>Password</h3><input type='password' defaultValue="free" ref={passwordRef} /></div>
-      <div><p>Remember me</p><input type='checkbox' ref={rememberMeRef} /></div>
-      <div><button onClick={login}>LogIn</button></div>
-    </div>
+      <div>
+        <h3 style={{ margin: "6px" }}>Login</h3>
+        <input
+          type='text'
+          defaultValue="free@samuraijs.com"
+          style={{ backgroundColor: 'white', outline: "none", borderRadius: "5px" }}
+          ref={loginRef} />
+      </div>
+      <div>
+        <h3 style={{ margin: "6px" }}>Password</h3>
+        <input
+          type='password'
+          style={{ backgroundColor: 'white', outline: "none", borderRadius: "5px" }}
+          defaultValue="free"
+          ref={passwordRef}
+
+        />
+      </div>
+      <p>Remember me</p>
+      <div><input
+        type='checkbox'
+        ref={rememberMeRef}
+      /></div>
+      <div><Button
+        variant="contained"
+        color="primary"
+        onClick={login}
+        disabled={props.status === "INPROGRESS"}>LogIn</Button></div>
+      {errorMessage}
+
+    </div >
   );
 }
 

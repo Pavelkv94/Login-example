@@ -1,15 +1,45 @@
 * {
     margin: 0px;
+    
+}
+
+.App {
+    width: 100vw;
+    height: 100vh;
+    background-image: url('./assets//back.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.main {
+    width: 60vw;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.322);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: rgb(0, 255, 234);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 3em;
+
 }
 
 .loginContainer {
     width: 50vw;
     height: 30vh;
-    background-color: aqua;
-    margin: 100px auto;
+    background-image: linear-gradient(rgb(95, 253, 253), rgb(62, 91, 255));
+    margin: 0 auto;
     padding: 50px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border-radius: 10px;
+    box-shadow: black 10px 10px 10px;
+    color: white;
+}
+
+.error {
+    color: red;
 }

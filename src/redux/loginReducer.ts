@@ -1,3 +1,4 @@
+import { setAuthUserAC } from './authReducer';
 import { axiosInstance } from '../dal/axios-instance';
 import { ActionType, DispatchType } from './reduxStore';
 type StatusType = "INIT" | "ERROR" | "INPROGRESS" | "CAPTCHAREQUIRED" | "SUCCESS"
@@ -59,6 +60,7 @@ export const loginThunk = (email: string, pass: string, rm: boolean) => (dispatc
         //debugger 
         if (res.data.resultCode === 0) {
             dispatch(SetStatusAC("SUCCESS")); alert('Вы залогинились!')
+            dispatch(setAuthUserAC(true))
         } else {
             dispatch(SetStatusAC("ERROR"));
             dispatch(SetMessageAC(res.data.messages[0]));
