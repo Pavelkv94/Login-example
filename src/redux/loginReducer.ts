@@ -6,6 +6,7 @@ export type InitialStateLoginType = {
     status: StatusType
     message: string
     captchaUrl: string
+    isRem:boolean
 }
 export type SetStatusType = {
     type: "SET-STATUS",
@@ -20,6 +21,7 @@ let initialState: InitialStateLoginType = {
     status: "INIT",
     message: "",
     captchaUrl: "",
+    isRem:false
 }
 
 export const loginReducer = (state: any = initialState, action: ActionType) => {

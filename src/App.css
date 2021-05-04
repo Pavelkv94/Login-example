@@ -1,6 +1,5 @@
 * {
     margin: 0px;
-    
 }
 
 .App {
@@ -10,6 +9,7 @@
     background-repeat: no-repeat;
     background-position: center;
 }
+
 .main {
     width: 60vw;
     height: 100vh;
@@ -22,7 +22,6 @@
     color: rgb(0, 255, 234);
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 3em;
-
 }
 
 .loginContainer {
@@ -42,4 +41,17 @@
 
 .error {
     color: red;
+}
+
+.in {
+    width: 200px;
+    height: 30px;
+    outline: none;
+    border-radius: 5px;
+    border: 2px solid black;
+    font-size: 18px;
+}
+
+.in:hover {
+    border: 2px rgb(50, 50, 245) solid;
 }

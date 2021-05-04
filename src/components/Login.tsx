@@ -11,6 +11,7 @@ type MapStateType = {
   status: string
   message: string
   capthaUrl: string
+  isRem: boolean
 }
 type MapDispatchType = {
   login: (email: string, pass: string, remember: boolean) => void
@@ -40,6 +41,7 @@ export function Login(props: LoginType) {
       <div>
         <h3 style={{ margin: "6px" }}>Login</h3>
         <input
+          className='in'
           type='text'
           defaultValue="free@samuraijs.com"
           style={{ backgroundColor: 'white', outline: "none", borderRadius: "5px" }}
@@ -48,6 +50,7 @@ export function Login(props: LoginType) {
       <div>
         <h3 style={{ margin: "6px" }}>Password</h3>
         <input
+          className='in'
           type='password'
           style={{ backgroundColor: 'white', outline: "none", borderRadius: "5px" }}
           defaultValue="free"
@@ -58,6 +61,7 @@ export function Login(props: LoginType) {
       <p>Remember me</p>
       <div><input
         type='checkbox'
+        onClick={()=>{}} //Добавить чекбокс
         ref={rememberMeRef}
       /></div>
       <div><Button
@@ -76,6 +80,7 @@ let mapStateToProps = (state: StateType): MapStateType => ({
   status: state.login.status,
   message: state.login.message,
   capthaUrl: state.login.captchaUrl,
+  isRem: state.login.isRem
 })
 let mapDispatchToProps = (dispatch: any): MapDispatchType => ({
   login: (email: string, pass: string, remember: boolean) => {
