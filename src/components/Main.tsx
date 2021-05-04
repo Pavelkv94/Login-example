@@ -8,7 +8,7 @@ import { DispatchType, StateType } from '../redux/reduxStore';
 type MainProps = MapStateType & MapDispatchType
 export function Main(props: MainProps) {
 
-  if (!props.isAuth)  return <Redirect to='/login' />
+  if (!props.isAuth)  return <Redirect to='/' />
   return (
     <div className="main">
       <h2>HELLO WORLD</h2>
