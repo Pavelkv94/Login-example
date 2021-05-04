@@ -6,17 +6,17 @@ import { Main, MainContainer } from './components/Main';
 
 function App() {
   return (
-          <div className='App'>
-        <Route
-          path='/'
-          render={() => <LoginContainer />}
-        />
-        <Route
-          path='/main'
-          render={() => <MainContainer />}
-        />
-      </div>
-      );
+    <div className='App'>
+      <Route
+        path='/'
+        render={() => <LoginContainer />}
+      />
+      <Route
+        path='/main'
+        render={() => <MainContainer />}
+      />
+    </div>
+  );
 }
 
 export default App;
